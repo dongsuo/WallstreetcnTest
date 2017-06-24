@@ -1,0 +1,62 @@
+h1{
+	text-align: center;
+	color: #3879bd;
+	font-weight: normal;
+	font-size: 18px;
+	line-height: 30px;
+	height: 30px;
+	border: 1px solid #fff;
+}
+h1 .material-icons{
+	color: #cdcdcc;
+	height: 100%;
+	line-height: 30px;
+}
+h1 i:nth-of-type(1){
+	float: left;
+}
+h1 i:nth-of-type(2){
+	float: right;
+}
+md-input-container{
+	display: block;
+	width: 100%;
+}
+div{
+	position: relative;
+	overflow: hidden;
+}
+
+div.phone-num-container{
+	height: 70px;
+}
+
+div md-input-container.phone-num{
+	left: 120px;
+	position: absolute;
+	right: 20px;
+	/*bottom: 0;*/
+}
+div md-select{
+	position: absolute;
+	bottom: 1.29688em;
+}
+
+div div.num-warn{
+	position: absolute;
+	bottom: 0;
+}
+
+div button{
+	position: absolute;
+	right: 20px;
+	/*width: 20%;*/
+	bottom:0;
+}
+.vrifict-btn{
+	color:#88bae5;
+}
+.login-submit{
+	display: block;
+	margin: 0 auto;
+}

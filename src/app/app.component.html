@@ -1,0 +1,34 @@
+<h1>
+	<i class="material-icons">&#xE314;</i>
+  	登录
+ 	<i class="material-icons">&#xE5CD;</i>
+</h1>
+<form #loginForm = "ngForm">
+	<div class="phone-num-container">
+	<md-select placeholder="国家区号" [(ngModel)]="loginInfo.countryCode" name='countryCode' required>
+		<md-option *ngFor="let country of countryCodes" [value]="country.value">
+		  {{ country.value }}
+		</md-option>
+	</md-select>
+	<md-input-container class="phone-num">
+	  	<input mdInput placeholder="手机号" [(ngModel)] = "loginInfo.num" name="num" #num="ngModel"  required >
+	</md-input-container>
+	<div [hidden]="num.pristine || verifyNum(loginInfo.num)" class="num-warn">请输入合法的手机号码</div>
+</div>
+<div>
+	<md-input-container >
+	  <input mdInput placeholder="验证码" [(ngModel)] = "loginInfo.verify" name="verify" #verify="ngModel" required>
+	  <button md-button class="vrifict-btn" (click)="getVerifi($event)" [disabled] = "!vrifictStatus.status || !verifyNum(loginInfo.num)" >{{vrifictStatus.msg}}</button>
+	</md-input-container>
+	
+</div>
+
+<md-input-container>
+  <input mdInput placeholder="密码(不少于6位)" [(ngModel)]="loginInfo.pwd" name="pwd"  #pwd="ngModel" required>
+</md-input-container>
+
+<div [hidden]="pwd.pristine || (loginInfo.pwd.length >= 6)">密码应不少于6位</div>
+
+<button md-button class="login-submit" [disabled]="!loginForm.form.valid || (loginInfo.pwd.length < 6) || !verifyNum(this.loginInfo.num)" (click)="onSubmit(loginInfo); loginForm.reset()">提交</button>
+</form>
+
